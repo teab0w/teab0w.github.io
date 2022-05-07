@@ -2,14 +2,13 @@ body {
 	max-width: 600px;
 	padding: 1em;
 	font-size: 1.2em;
-	line-height: 1.4;
+	line-height: 1.5;
 	font-family: 'Inter', sans-serif;
 	font-weight: 400;
 }
 
 h1 {
 	font-size: 1.4em;
-	font-style: italic;
 	font-weight: 600;
 	margin-top: 0;
 	margin-bottom: 0;
