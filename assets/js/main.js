@@ -28,33 +28,62 @@ $(function () {
 
 
 
-    /* ===== Real Time ===== */
-    if ($('.realtime').length) {
-        startTime();
-    }
-    
-    function startTime() {
-        const timeEl = document.querySelectorAll('.realtime');
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var ampm = h >= 12 ? 'PM' : 'AM';
-        h = h % 12;
-        h = h ? h : 12; // the hour '0' should be '12'
-        m = checkTime(m);
-        timeEl.forEach(item => {
-            item.innerHTML = h + ":" + m + " " + ampm;
+/* ===== Real Time ===== */
+// Old local time code (commented out)
+/*
+if ($('.realtime').length) {
+    startTime();
+}
 
-        });
-        var t = setTimeout(startTime, 500);
-    }
-    
-    function checkTime(i) {
-        if (i < 10) {
-            i = "0" + i;
-        }  // add zero in front of numbers < 10
-        return i;
-    }
+function startTime() {
+    const timeEl = document.querySelectorAll('.realtime');
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12;
+    h = h ? h : 12; // the hour '0' should be '12'
+    m = checkTime(m);
+    timeEl.forEach(item => {
+        item.innerHTML = h + ":" + m + " " + ampm;
+    });
+    var t = setTimeout(startTime, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }  // add zero in front of numbers < 10
+    return i;
+}
+*/
+
+// New Auckland time code
+if ($('.realtime').length) {
+    startAucklandTime();
+}
+
+function startAucklandTime() {
+    const timeEl = document.querySelectorAll('.realtime');
+    const now = new Date();
+    // Format time in Auckland timezone, 12-hour with AM/PM
+    const options = {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZone: 'Pacific/Auckland'
+    };
+    let aucklandTime = now.toLocaleTimeString('en-NZ', options);
+
+    // Ensure AM/PM is uppercase
+    aucklandTime = aucklandTime.replace(/\s?(am|pm)$/i, (match) => match.toUpperCase());
+
+    timeEl.forEach(item => {
+        item.innerHTML = aucklandTime;
+    });
+    setTimeout(startAucklandTime, 500);
+}
+
 
 
     // Custom Mouse Cursor for Work
