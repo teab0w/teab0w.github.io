@@ -16,6 +16,12 @@ $(function () {
 
 
     /* ===== Loader ===== */
+ $(function () {
+    // Trigger scroll animations immediately on DOM ready
+    scroll_animations();
+
+    // Remove the entire loader block if preloader is gone
+    /*
     $(window).on('load', function () {
         setTimeout(() => {
             $('.preloader-wrap').delay('500').fadeOut(1000);
@@ -25,7 +31,10 @@ $(function () {
             scroll_animations();
         }, 800);
     });
+    */
 
+    // ...rest of your code...
+});
 
 
 /* ===== Real Time ===== */
