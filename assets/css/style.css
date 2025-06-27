@@ -2479,3 +2479,17 @@ a.link-with-border:hover {
     cursor: not-allowed;
 
 }
+
+* Hide scroll-animation elements by default */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+
+/* When animated, show and move to position */
+.scroll-animation.animated,
+.scroll-animation.gsap-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
