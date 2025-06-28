@@ -18,12 +18,12 @@ $(function () {
     /* ===== Loader ===== */
     $(window).on('load', function () {
         setTimeout(() => {
-            $('.preloader-wrap').delay('500').fadeOut(1000);
-        }, 200);
+            $('.preloader-wrap').delay('100').fadeOut(1000);
+        }, 100);
         setTimeout(() => {
-            $('.hero-sec .hero-footer-wrap.scroll-from-bottom').addClass('animated');
+            // $('.hero-sec .hero-footer-wrap.scroll-from-bottom').addClass('animated');
             scroll_animations();
-        }, 0);
+        }, 100);
     });
 
 
